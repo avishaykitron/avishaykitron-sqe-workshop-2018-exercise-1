@@ -3,8 +3,36 @@
     <head>
         <meta charset="UTF-8">
 
-        <style>
-            table {
+        <style type="text/css">
+            table.imagetable
+            {
+                font-family: verdana,arial,sans-serif;
+                width: 100%;
+                height: 100%;
+                font-size:11px;
+                color:#333333;
+                align:center;
+                border-width: 1px;
+                border-color: #999999;
+                border-collapse: collapse;
+            }
+            table.imagetable th
+            {
+                background:#b5cfd2;
+                border-width: 2px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #999999;
+            }
+            table.imagetable td
+            {
+                background:#dcddc0;
+                border-width: 1px;
+                padding: 8px;
+                border-style: solid;
+                border-color: #999999;
+            }
+            table.glob {
                 width: 100%;
                 height: 100%;
             }
@@ -21,7 +49,7 @@
         </style>
     </head>
     <body>
-        <table>
+        <table class = glob>
             <tr>
                 <td>
                     <div>
@@ -41,9 +69,7 @@
                     </div>
                 </td>
                 <td>
-                    <div class="textAreaWrapper">
-                        <textarea id="parsedCode" title="Parse code"></textarea>
-                    </div>
+                    <table id="excelDataTable" , border="1", bordercolor="#000000", class = 'imagetable' ></table>
                 </td>
             </tr>
             <tr>
