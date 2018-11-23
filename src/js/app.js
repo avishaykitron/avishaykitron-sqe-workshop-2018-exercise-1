@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#codeSubmissionButton').click(() => {
         let codeToParse = $('#codePlaceholder').val();
         //let parsedCode = parseCode(codeToParse);
-        jsonToTable(create_table(codeToParse) ,'#excelDataTable');
+        jsonToTable(create_table(codeToParse) ,'#avishay');
         //$('#parsedCode').val(JSON.stringify(parsedCode, null, 2));
     });
 });
