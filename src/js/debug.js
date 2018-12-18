@@ -1367,8 +1367,10 @@ var inputt = {
 var result = (jsonToModel('{"type":"Program","body":[],"sourceType":"script","loc":{"start":{"line":0},"end":{}}}'));
 var flat_res = flattenArray(result);
 
+
 function remove_backSlash(str){
     return str.replace(/\\/gi, '');
 }
-var x =remove_backSlash('[{\\"line\\":1,\\"type\\":\\"VariableDeclarator\\",\\"name\\":\\"a\\",\\"condition\\":\\"\\",\\"value\\":\\"0\\"},{\\"line\\":1,\\"type\\":\\"AssignmentExpression\\",\\"name\\":\\"a\n' + '\\",\\"condition\\":\\"\\",\\"value\\":\\"a+1\\"}]');
+var x =remove_backSlash('[{\\"line\\":1,\\"type\\":\\"VariableDeclarator\\",\\"name\\":\\"a\\",\\"condition\\":\\"\\",\\"value\\":\\"0\\"},{\\"line\\":2,\\"type\\":\\"IfStatement\\",\\"name\\":\\"\\",\\"condi\n' +
+    'tion\\":\\"a<9\\",\\"value\\":\\"\\"},{\\"line\\":3,\\"type\\":\\"UpdateExpression\\",\\"name\\":\\"a\\",\\"condition\\":\\"\\",\\"value\\":\\"a++\\"}]');
 console.log(x);*/

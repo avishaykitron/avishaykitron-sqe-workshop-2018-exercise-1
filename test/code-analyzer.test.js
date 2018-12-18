@@ -105,3 +105,33 @@ describe ('return stat',()=>{
             JSON.stringify(create_table('function x (i){return i;}')) , '[{"line":1,"type":"FunctionDeclaration","name":"x","condition":"","value":""},{"line":1,"type":"VariableDeclaration","name":"i","condition":"","value":""},{"line":1,"type":"ReturnStatement","name":"","condition":"","value":"i"}]');
     });
 });
+describe ('test',()=>{
+    it('for' ,()=>{
+        assert.equal(
+            JSON.stringify(create_table('' +
+                'function Sort(arr){\n' +
+                '   for(let i =0;i<arr.length -1 ; i++){\n' +
+                '      for(let j =0;j<arr.length - (1+1) ; j++){\n' +
+                '         if (arr[j]>arr[j+1]){\n' + '             let temp = arr[j];\n' + '             arr[j]=arr[j+1];\n' + '             arr[j+1]=temp;\n' +
+                '          }\n' +
+                '       }\n' +
+                '   }\n' +
+                '   return arr;\n' +
+                '}')),'[{"line":1,"type":"FunctionDeclaration","name":"Sort","condition":"","value":""},{"line":1,"type":"VariableDeclaration","name":' +
+            '"arr","condition":"","value":""},{"line":2,"type":"ForStatement","name":"","condition":"i = 0;i<arr.length-1;i++"},{"line":3,"type":"ForStatement' +
+            '","name":"","condition":"j = 0;j<arr.length-1+1;j++"},{"line":4,"type":"IfStatement","name":"","condition":"arr[j]>arr[j+1]","value":""},{"line"' +
+            ':5,"type":"VariableDeclarator","name":"temp","condition":"","value":"arr[j]"},{"line":6,"type":"AssignmentExpression","name":"arr[j]","condition"' +
+            ':"","value":"arr[j+1]"},{"line":7,"type":"AssignmentExpression","name":"arr[j+1]","condition":"","value":"temp"},{"line":11,"type":"ReturnStatem' +
+            'ent","name":"","condition":"","value":"arr"}]');
+    });
+});
+describe ('Prefix if statement',()=>{
+    it('if not nested' ,()=>{
+        assert.equal(
+            JSON.stringify(create_table('let a = 0;\n' +
+                'if(a < 9){\n' +
+                '    a++;\n' +
+                '}\n')) , '[{"line":1,"type":"VariableDeclarator","name":"a","condition":"","value":"0"},{"line":2,"type":"IfStatement","name":"","condi' +
+            'tion":"a<9","value":""},{"line":3,"type":"UpdateExpression","name":"a","condition":"","value":"a++"}]');
+    });
+});
